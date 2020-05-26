@@ -1,0 +1,127 @@
+<html>
+<head>
+</head>
+<style>
+    h1{
+        text-align: center;
+    }
+    #divv{
+        width:700px;
+        height: 500px;
+        background-color: cadetblue;
+        margin:auto;
+    }
+    input{
+      margin-left: 80px;
+    }
+    button{
+        background-color: blue;
+        width: 100px;
+        height: 50px;
+        margin-left: 100px;
+    }
+</style>
+<body>
+    <%- include("../navbar.ejs")   -%>
+  <h1> Hello <%= locals.speakerName %></h1>
+  
+  <%data.forEach((data) =>{ %>
+    <div >
+        <div >
+            <div id="divv" >
+                <div>
+                </div>
+                <div  >
+                    <form method="POST" action="/editSpeaker">
+                        <div > 
+                            <!-- <div class="name">ID</div> -->
+                            <div class="value">
+                                <div >
+                                    <div>
+                                        <div >
+                                            <input  Hidden value="<%=data._id%>" type="text" name="_id"></br></br>
+                                            <label ></label>
+                                        </div>
+                                    </div> 
+                                    <div >
+                                        <div >
+                                            <!-- <input class="input--style-5" type="text" name="last_name">
+                                            <label class="label--desc"> username</label> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div ></div>
+                            <div>
+                                <div >
+                                    FullName  <input  type="text" name="fullname" value="<%=data.fullname%>"></br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div ></div>
+                            <div>
+                                <div >
+                                    UserName <input  type="text" name="username" value="<%=data.username%>"></br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            
+                            <div></div>
+                            <div >
+                                <div >
+                                    Password  <input  type="password" name="userpassword" value="<%=data.userpassword%>"></br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <!-- <div class="name">Password</div> -->
+                            <div>
+                                <div >
+                                    <div >
+                                         <div>
+                                            <!-- <input class="input--style-5" type="password" name="userpassword"> -->
+                                            <!-- <label class="label--desc">Password</label> -->
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div></div>
+                            <div >
+                                <div >
+                                    City  <input  type="text" value="<%=data.address.city%>" name="city"></br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div ></div>
+                            <div>
+                                <div >
+                                    Street  <input  type="text" value="<%=data.address.street%>" name="street"></br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div ></div>
+                            <div >
+                                <div >
+                                    Building    <input type="text"  value="<%=data.address.building%>" name="building"></br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit">Apply Editing</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  <% }) %>
+</body>
+</html>
